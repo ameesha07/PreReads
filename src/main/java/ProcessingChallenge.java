@@ -2,39 +2,28 @@ import processing.core.PApplet;
 
 public class ProcessingChallenge  extends PApplet {
 
-    public  static final int widht =600;
-    public  static final int height =600;
-    int widht1=0,widht2=0,widht3=0,widht4=0;
+   public static int speed = 0;
 
-    public  static void main(String[] args)        //called by java
-    {
-        PApplet.main("ProcessingChallenge" , args );
+    public static final int WIDTH = 700;
+    public static final int HEIGHT = 700;
+
+    public static void main(String[] args){ PApplet.main("ProcessingChallenge",args); }
+
+    @Override
+    public void settings() {
+        size(WIDTH, HEIGHT);
     }
 
-    public void settings()     //called only once by processing itself  (initialize)
-    {
-        super.settings();
-        size(widht,height);
-    }
-
-    public  void draw()   //called repeactedly (infinite)
-    {
-        drawCircle();
+    @Override
+    public void setup() {
 
     }
 
-
-    private void drawCircle()
-    {
-        ellipse(widht1,height/5,10,10);
-        widht1+=1;
-        ellipse(widht2,(2*height)/5,10,10);
-        widht2+=2;
-        ellipse(widht3,(3*height)/5,10,10);
-        widht3+=3;
-        ellipse(widht4,(4*height)/5,10,10);
-        widht4+=4;
+    @Override
+    public void draw() {
+        for(int i=1;i<=4;i++){
+            ellipse(speed*i, HEIGHT*i/5, diameter, diameter);
+        }
+        speed+=1;
     }
-
-
 }
